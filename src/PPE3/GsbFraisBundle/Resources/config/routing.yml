@@ -1,0 +1,28 @@
+# ppe3_gsb_frais_homepage:
+    # path:     /
+    # defaults: { _controller: PPE3GsbFraisBundle:Default:index }
+
+ppe3_gsb_accueil:
+    path:     /
+    defaults: { _controller: PPE3GsbFraisBundle:Accueil:index }
+
+ppe3_gsb_profil:
+    path:     /Profil
+    defaults: { _controller: PPE3GsbFraisBundle:Profil:index }
+
+
+ppe3_gsb_consulter:
+    path:     /Consulter
+    defaults: { _controller: PPE3GsbFraisBundle:Consulter:index }
+
+
+ppe3_gsb_ajouter:
+    path:     /Ajouter
+    defaults: { _controller: PPE3GsbFraisBundle:Ajouter:index }
+
+
+ppe3_gsb_edit:
+    path:     /Mdp
+    defaults: { _controller: PPE3GsbFraisBundle:Modifier:index }
+
+

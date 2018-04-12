@@ -1,0 +1,120 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+    {{ parent() }}Modifier
+{% endblock %}
+{% block body %}
+    <div class="page-wrapper">
+        <!-- Bread crumb -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-primary">MODIFIER MOT DE PASSE</h3> </div>
+            <div class="col-md-7 align-self-center">
+
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-outline-primary">
+                        <div class="card-body">
+                            {{ form_start(formChange) }}
+                            <div class="form-body">
+                                <h3 class="card-title m-t-15">Nouvelles informations</h3>
+                                <hr>
+
+                                {% if errorModif is defined  %}
+                                    <div class="col-md-12">
+                                        <div class="alert alert-danger" role="alert">
+                                           Erreur de modification. Veuillez réssayer !!
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if errorAnc is defined  %}
+                                    <div class="col-md-12">
+                                        <div class="alert alert-danger" role="alert">
+                                            L'ancien mot de passe est faux. Veuillez saisir le bon mot de passe !
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if errorMdp is defined  %}
+                                    <div class="col-md-12">
+                                        <div class="alert alert-danger" role="alert">
+                                            les deux mots de passes ne sont pas identiques. Veuillez recommencer !
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if succes is defined  %}
+                                    <div class="col-md-12">
+                                        <div class="alert alert-success" role="alert">
+                                            Votre mot de passe a été changé avec succès ☺
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+
+
+                                <div class="row p-t-20">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Ancien mot de passe</label>
+                                            {{ form_row(formChange.ancienMotDePasse) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group has-danger">
+                                            <label class="control-label">Nouveau mot de passe</label>
+                                            {{ form_row(formChange.nouveauMotDePasse) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group has-danger">
+                                            <label class="control-label">Confirmer</label>
+                                            {{ form_row(formChange.confirmerMotDePasse) }}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-actions">
+
+                                {{ form_row(formChange.add) }}
+
+                            </div>
+                            {{ form_end(formChange) }}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- footer -->
+            <footer class="footer"> © 2018 All rights reserved.  <a href="https://colorlib.com"></a></footer>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+    </div>
+    <script type="text/javascript">
+        window.setTimeout(function () {
+            $(".alert-danger").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 10000);
+    </script>
+    <script type="text/javascript">
+        window.setTimeout(function () {
+            $(".alert-success").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 10000);
+    </script>
+{% endblock %}
+

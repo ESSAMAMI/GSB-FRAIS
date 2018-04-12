@@ -1,0 +1,7 @@
+ppe3_gsb_frais:
+    resource: "@PPE3GsbFraisBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

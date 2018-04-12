@@ -1,0 +1,111 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+    {{ parent() }} Accueil
+{% endblock %}
+{% block body %}
+    <div class="page-wrapper">
+        <!-- Bread crumb -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-primary">FICHE FRAIS</h3> </div>
+            <div class="col-md-7 align-self-center">
+
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-outline-primary">
+                        <div class="card-header">
+                            <h4 class="m-b-0 text-white">Frais Forfait</h4>
+                        </div>
+                        <div class="card-body">
+                            {{ form_start(formAdd) }}
+                                <div class="form-body">
+
+                                    <hr>
+                                    <div class="row p-t-20">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                {% set annee = "now"|date("Y") %}
+                                                {{ form_row(formAdd.annee,{'value' : annee }) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                {% set mois = "now"|date("m") %}
+                                                {{ form_row(formAdd.mois, {'value' : mois}) }}
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                {{ form_row(formAdd.repasMidi) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group has-danger">
+
+                                               {{ form_row(formAdd.nuit) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group has-danger">
+
+                                                {{ form_row(formAdd.etap) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group has-danger">
+
+                                                {{ form_row(formAdd.km) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group has-danger">
+
+                                                {{ form_row(formAdd.nbJ) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group has-danger">
+
+                                                {{ form_row(formAdd.total) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group has-danger">
+
+                                                {{ form_row(formAdd.add) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group has-danger">
+
+                                                {{ form_row(formAdd.ccl) }}
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            {{ form_end(formAdd) }}
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- footer -->
+            <footer class="footer"> © 2018 All rights reserved.  <a href="https://colorlib.com"></a></footer>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+    </div>
+{% endblock %}
+

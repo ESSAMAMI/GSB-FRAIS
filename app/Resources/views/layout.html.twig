@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+	<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width" />
+      <title>{% block title %}GSB FRAIS | {% endblock %}</title>
+      {% block stylesheets %}
+          <link rel="stylesheet" href="{{ asset("assets/css/css/lib/bootstrap/bootstrap.min.css") }}">
+	      <link rel="stylesheet" href="{{ asset("assets/css/css/lib/calendar2/semantic.ui.min.css") }}">
+	      <link rel="stylesheet" href="{{ asset("assets/css/css/lib/calendar2/pignose.calendar.min.css") }}">
+	      <link rel="stylesheet" href="{{ asset("assets/css/css/lib/owl.carousel.min.css") }}">
+	      <link rel="stylesheet" href="{{ asset("assets/css/css/lib/owl.theme.default.min.css") }}">
+          <link rel="stylesheet" href="{{ asset("assets/css/css/helper.css") }}">
+	      <link rel="stylesheet" href="{{ asset("assets/css/css/style.css") }}">
+	      
+      {% endblock %}
+                 
+   </head>
+   <body class="fix-header fix-sidebar">
+       <!-- Preloader - style you can find in spinners.css -->
+       <div class="preloader">
+           <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+       </div>
+       <!-- Main wrapper  -->
+       <div id="main-wrapper">
+           <!-- header header  -->
+           <div class="header">
+               <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                   <!-- Logo -->
+                   <div class="navbar-header">
+                       <a class="navbar-brand" href="index.html">
+                           <!-- Logo icon -->
+                           <b><img src="images/logo.png" alt="GSB" class="dark-logo" /></b>
+                           <!--End Logo icon -->
+                           <!-- Logo text -->
+                           <span><img src="images/logo-text.png" alt=" Frais" class="dark-logo" /></span>
+                       </a>
+                   </div>
+                   <!-- End Logo -->
+                   <div class="navbar-collapse">
+                       
+                       <ul class="navbar-nav mr-auto mt-md-0">
+                          
+                       </ul>
+                       
+                       <ul class="navbar-nav my-lg-0">
+
+                           <!-- Profile -->
+                           <li class="nav-item dropdown">
+                               <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="#" class="profile-pic" /></a>
+                               <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                                   <ul class="dropdown-user">
+                                       {% set nom = app.session.get('nom') %}
+                                       {% set prenom = app.session.get('prenom') %}
+                                       <li><a href="#"><i class="ti-settings"></i>{{ nom ~' '~ prenom}}</a></li>
+                                       <li><a href="{{ path('ppe3_gsb_edit') }}"><i class="ti-settings"></i>Paramétres</a></li>
+                                       <li><a href="{{ path('ppe3_gsb_accueil') }}"><i class="fa fa-power-off"></i> Se déconnecter</a></li>
+                                   </ul>
+                               </div>
+                           </li>
+                       </ul>
+                   </div>
+               </nav>
+           </div>
+           <!-- End header header -->
+           <!-- Left Sidebar  -->
+           <div class="left-sidebar">
+               <!-- Sidebar scroll-->
+               <div class="scroll-sidebar">
+                   <!-- Sidebar navigation-->
+                   <nav class="sidebar-nav">
+                       <ul id="sidebarnav">
+                           <li class="nav-devider"></li>
+                           
+                           <li class="nav-label">SERVICES</li>
+                           
+                           
+                           <li> <a class="has-arrow  " href="{{ path('ppe3_gsb_profil') }}" aria-expanded="false"><i class="fa fa-money"></i><span class="hide-menu">Accueil</span></a></li>
+                           <li> <a class="has-arrow  " href="{{ path('ppe3_gsb_ajouter') }}" aria-expanded="false"><i class="fa fa-money"></i><span class="hide-menu">Ajouter une fiche</span></a></li>
+                           <li> <a class="has-arrow  " href="{{ path('ppe3_gsb_consulter') }}" aria-expanded="false"><i class="fa fa-money"></i><span class="hide-menu">Consulter les fiches</span></a></li>
+                       </ul>
+                   </nav>
+                   <!-- End Sidebar navigation -->
+               </div>
+               <!-- End Sidebar scroll-->
+           </div>
+       </div>
+         {% block body %}
+         {% endblock %}
+         
+   		{% block javascripts %}
+
+   			<script type="text/javascript" src="{{ asset("assets/js/js/lib/jquery/jquery.min.js") }}"></script>
+   			<script type="text/javascript" src="{{ asset("assets/js/js/lib/bootstrap/js/popper.min.js") }}"></script>
+   			<script type="text/javascript" src="{{ asset("assets/js/js/lib/bootstrap/js/bootstrap.min.js") }}"></script>
+   			<script type="text/javascript" src="{{ asset("assets/js/jquery.slimscroll.js") }}"></script>
+   			<script type="text/javascript" src="{{ asset("assets/js/sidebarmenu.js") }}"></script>
+   			<script type="text/javascript" src="{{ asset("assets/js/lib/sticky-kit-master/dist/sticky-kit.min.js") }}"></script>
+
+            <script type="text/javascript" src="{{ asset("assets/js/js/lib/morris-chart/raphael-min.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/lib/morris-chart/morris.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/lib/morris-chart/dashboard1-init.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/lib/calendar-2/moment.latest.min.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/lib/calendar-2/semantic.ui.min.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/lib/calendar-2/prism.min.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/lib/calendar-2/pignose.calendar.min.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/lib/calendar-2/pignose.init.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/lib/owl-carousel/owl.carousel.min.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/lib/owl-carousel/owl.carousel-init.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/scripts.js") }}"></script>
+            <script type="text/javascript" src="{{ asset("assets/js/js/custom.min.js") }}"></script>
+   		{% endblock %}
+   </body>
+</html>

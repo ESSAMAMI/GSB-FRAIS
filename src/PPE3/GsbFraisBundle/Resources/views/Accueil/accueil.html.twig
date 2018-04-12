@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>GSB FRAIS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Hamza ESSAMAMI" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	
+	<link rel="stylesheet" href="{{ asset("assets/css/animate.css") }}">
+
+	<link rel="stylesheet" href="{{ asset("assets/css/icomoon.css") }}">
+	
+	<link rel="stylesheet" href="{{ asset("assets/css/themify-icons.css") }}">
+	
+	<link rel="stylesheet" href="{{ asset("assets/css/bootstrap.css") }}">
+
+	
+	<link rel="stylesheet" href="{{ asset("assets/css/magnific-popup.css") }}">
+
+
+	<link rel="stylesheet" href="{{ asset("assets/css/bootstrap-datetimepicker.min.css") }}">
+
+	
+	<link rel="stylesheet" href="{{ asset("assets/css/owl.carousel.min.css") }}">
+	<link rel="stylesheet" href="{{ asset("assets/css/owl.theme.default.min.css") }}">
+
+
+	<link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
+
+	
+	<script src="{{ asset("assets/js/modernizr-2.6.2.min.js") }}"></script>
+	
+	<script src="{{ asset("assets/js/respond.min.js") }}"></script>
+	
+
+	</head>
+	<body>
+		
+	<!--<div class="gtco-loader"></div>-->
+	
+	<div id="page">
+		<nav class="gtco-nav" role="navigation">
+		<div class="gtco-container">
+			
+			<div class="row">
+			{% block sidebar %}
+				<div class="col-sm-4 col-xs-12">
+					<div id="gtco-logo"><a href="/GSB-FRAIS/web/app_dev.php/">Logo <em>.</em></a></div>
+				</div>
+			{% endblock %}
+			</div>
+		</div>
+	</nav>
+	<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url({{ asset ('assets/images/img_bg_1.jpg')}}" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-left">
+					
+	
+					<div class="row row-mt-15em">
+						<div class="col-md-7 mt-text" data-animate-effect="fadeInUp">
+							<h5 class="style-h5">Galaxy-Swiss Bourdin</h5>
+							<span class="intro-text-small">GESTION DES FRAIS</span>
+						</div>
+						<div class="col-md-4 col-md-push-1 " data-animate-effect="fadeInRight">
+							<div class="form-wrap">
+								<div class="tab">
+									
+									<div class="tab-content">
+										<div class="tab-content-inner active" data-content="signup">
+											<h3 class="cursive-font">Authentification</h3>
+                                            {{form_start(formConnect)}}
+												{% if erreur is defined  %}
+													<div class="row form-group">
+														<div class="col-md-12">
+															<div class="alert alert-danger" role="alert">
+																Connexion refusée !
+															</div>
+														</div>
+													</div>
+												{% endif %}
+												<div class="row form-group">
+													<div class="col-md-12">
+														{{form_row(formConnect.login)}}
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-12">
+                                                        {{form_row(formConnect.mdp)}}
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-12">
+														{{form_row(formConnect.type)}}
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-12">
+                                                        {{form_row(formConnect.Valider)}}
+													</div>
+												</div>
+
+
+                                            {{form_end(formConnect)}}
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<div id="gtco-features">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading ">
+					<h2 class="cursive-font">Qui somme-nous ?</h2><br>
+					<p>Le laboratoire Galaxy Swiss Bourdin (GSB) est issu de la fusion entre le géant américain Galaxy (spécialisé dans le secteur des maladies virales dont le SIDA et les hépatites) et le conglomérat européen Swiss Bourdin (travaillant sur des médicaments plus conventionnels), lui même déjà union de trois petits laboratoires. En 2009, les deux géants pharmaceutiques ont uni leurs forces pour créer un leader de ce secteur industriel. L’entité Galaxy Swiss Bourdin Europe a établi son siège administratif à Paris.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="gtco-cover gtco-cover-sm" style="background-image: url({{ asset ('assets/images/img_bg_3.jpg')}}"  data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="gtco-container text-center">
+			<div class="display-t">
+				<div class="display-tc">
+					<h1>&ldquo; Galaxy Swiss Bourdin La médecine de demain &rdquo;</h1>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div id="gtco-counter" class="gtco-section">
+		<div class="gtco-container">
+
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading ">
+					<h2 class="cursive-font primary-color">Développé par</h2>
+					
+				</div>
+			</div>
+
+			<div class="row">
+				
+			</div>
+		</div>
+	</div>
+	<footer id="gtco-footer" role="contentinfo" style="background-image: url({{ asset ('assets/images/img_bg_2.jpg')}}" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row row-pb-md">
+
+				
+
+				
+				<div class="col-md-12 text-center">
+					<div class="gtco-widget">
+						<h3>Contact</h3>
+						<ul class="gtco-quick-contact">
+							<li><a href="#"><i class="icon-phone"></i> +1 22 34 56 78</a></li>
+							<li><a href="#"><i class="icon-mail2"></i> contact@gsb.fr</a></li>
+							
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-12 text-center copyright">
+					<p><small class="block">&copy; 2017 . Tous Droits Réservés.</small> 
+						<small class="block">by <a href="#" target="_blank">ESSAMAMI</a> & <a href="#" target="_blank">NGUYEN</a></small></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- </div> -->
+
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	
+	<script src="{{ asset("assets/js/jquery.min.js") }}"></script>
+
+	<script src="{{ asset("assets/js/jquery.easing.1.3.js") }}"></script>
+
+	<script src="{{ asset("assets/js/bootstrap.min.js") }}"></script>
+
+	<script src="{{ asset("assets/js/jquery.waypoints.min.js") }}"></script>
+	
+	<script src="{{ asset("assets/js/owl.carousel.min.js") }}"></script>
+	
+	<script src="{{ asset("assets/js/jquery.countTo.js") }}"></script>
+
+	
+	<script src="{{ asset("assets/js/jquery.stellar.min.js") }}"></script>
+
+	
+	<script src="{{ asset("assets/js/jquery.magnific-popup.min.js") }}"></script>
+	<script src="{{ asset("assets/js/magnific-popup-options.js") }}"></script>
+	
+	<script src="{{ asset("assets/js/moment.min.js") }}"></script>
+	<script src="{{ asset("assets/js/bootstrap-datetimepicker.min.js") }}"></script>
+
+
+
+	<script src="{{ asset("js/main.js") }}"></script>
+	<script type="text/javascript">
+        window.setTimeout(function () {
+            $(".alert-danger").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 3000);
+	</script>
+
+	</body>
+</html>
+
