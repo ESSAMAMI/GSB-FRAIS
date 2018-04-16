@@ -16,6 +16,11 @@ class ConsulterController extends Controller
 
     public function indexAction(){
 
-        return $this->render('PPE3GsbFraisBundle:Consulter:consulter.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $getFiche = $em->getRepository("PPE3GsbFraisBundle:FicheFrais")->rechercher($this->get('session')->get('id'));
+        //$getLigne = $em->getRepository('PPE3GsbFraisBundle:LigneFraisForfait')->rechercherL();
+
+        return $this->render('PPE3GsbFraisBundle:Consulter:consulter.html.twig', array('lesFiches'=>$getFiche) );
     }
 }

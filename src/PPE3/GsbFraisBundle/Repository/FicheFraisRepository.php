@@ -8,25 +8,15 @@ use Doctrine;
 
 class FicheFraisRepository extends EntityRepository
 {
-    //visiteur_id 	etat_id 	mois 	nbJustificatif 	montantValide 	dateModif
 
     public function insFicheFrais($vId, $etId, $mois, $nbJ, $montant, $dateMod){
 
-        $ficheFrais = new FicheFrais();
-
-        $ficheFrais->setVisiteur($vId);
-        $ficheFrais->setEtat($etId);
-        $ficheFrais->setMois($mois);
-        $ficheFrais->setNbJustificatif($nbJ);
-        $ficheFrais->setMontant($montant);
-        $ficheFrais->setDateModif($dateMod);
-
+        $ficheFrais = new FicheFrais($vId,$mois,$etId, $nbJ, $montant, $dateMod);
 
         $em = $this->getEntityManager();
         $em->persist($ficheFrais);
 
         $em->flush();
-
 
     }
 
@@ -41,5 +31,23 @@ class FicheFraisRepository extends EntityRepository
             ->getResult();
 
         return $queryBuilder;
+    }
+
+    public function rechercher($id){
+
+        $queryBuilder = $this->_em->createQueryBuilder('f')
+            ->select('f')
+            ->from($this->_entityName, 'f')
+            ->join('f.visiteur','v') // Jointure avec Visiteur
+            ->join('f.etat', 'e') //Jointure avec Etat
+            ->where('f.visiteur = :id')
+            ->setParameter('id', $id)
+            ->addSelect('e')
+            ->addSelect('v')
+            ->getQuery()
+            ->getResult();
+
+        return $queryBuilder;
+
     }
 }

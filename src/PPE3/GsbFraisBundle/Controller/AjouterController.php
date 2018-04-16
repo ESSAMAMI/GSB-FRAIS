@@ -4,9 +4,7 @@
 namespace PPE3\GsbFraisBundle\Controller;
 
 
-use PPE3\GsbFraisBundle\Entity\FicheFrais;
-use PPE3\GsbFraisBundle\Entity\LigneFraisForfait;
-use PPE3\GsbFraisBundle\Entity\Visiteur;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -51,7 +49,7 @@ class AjouterController extends Controller
             $mois = $data['mois'];
             $nbJ = $data['nbJ'];
             $montant = $data['total'];
-            $date = date("d")."-".date("m")."-".date("Y");
+            $date = date("Y")."-".date("m")."-".date("d");
 
             $insertFicheFrais = $em->getRepository('PPE3GsbFraisBundle:FicheFrais')->insFicheFrais($visiteur, $etat, $mois, $nbJ, $montant, $date);
 

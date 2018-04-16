@@ -28,20 +28,19 @@ class LigneFraisForfait
     private $id ;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PPE3\GsbFraisBundle\Entity\FicheFrais", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="PPE3\GsbFraisBundle\Entity\FicheFrais")
      * @ORM\JoinColumn(name="visiteur_id", referencedColumnName="visiteur_id")
      */
     private $visiteur;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PPE3\GsbFraisBundle\Entity\FicheFrais", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="PPE3\GsbFraisBundle\Entity\FicheFrais")
      * @ORM\JoinColumn(name="mois", referencedColumnName="mois")
      */
     private $mois;
 
-
     /**
-     * @ORM\ManyToOne(targetEntity="PPE3\GsbFraisBundle\Entity\FraisForfait", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="PPE3\GsbFraisBundle\Entity\Fraisforfait")
      * @ORM\JoinColumn(name="frais_forfait_id", referencedColumnName="id")
      */
    
@@ -63,8 +62,19 @@ class LigneFraisForfait
         $this->fraisForfait = $fraisForfaits;
         $this->quantite = $quantite;
     }
+    
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set quantite
@@ -97,7 +107,7 @@ class LigneFraisForfait
      *
      * @return LigneFraisForfait
      */
-    public function setVisiteur(\PPE3\GsbFraisBundle\Entity\FicheFrais $visiteur)
+    public function setVisiteur(\PPE3\GsbFraisBundle\Entity\FicheFrais $visiteur = null)
     {
         $this->visiteur = $visiteur;
 
@@ -121,7 +131,7 @@ class LigneFraisForfait
      *
      * @return LigneFraisForfait
      */
-    public function setMois(\PPE3\GsbFraisBundle\Entity\FicheFrais $mois)
+    public function setMois(\PPE3\GsbFraisBundle\Entity\FicheFrais $mois = null)
     {
         $this->mois = $mois;
 
@@ -141,11 +151,11 @@ class LigneFraisForfait
     /**
      * Set fraisForfait
      *
-     * @param \PPE3\GsbFraisBundle\Entity\FraisForfait $fraisForfait
+     * @param \PPE3\GsbFraisBundle\Entity\Fraisforfait $fraisForfait
      *
      * @return LigneFraisForfait
      */
-    public function setFraisForfait(\PPE3\GsbFraisBundle\Entity\FraisForfait $fraisForfait)
+    public function setFraisForfait(\PPE3\GsbFraisBundle\Entity\Fraisforfait $fraisForfait = null)
     {
         $this->fraisForfait = $fraisForfait;
 
@@ -155,7 +165,7 @@ class LigneFraisForfait
     /**
      * Get fraisForfait
      *
-     * @return \PPE3\GsbFraisBundle\Entity\FraisForfait
+     * @return \PPE3\GsbFraisBundle\Entity\Fraisforfait
      */
     public function getFraisForfait()
     {

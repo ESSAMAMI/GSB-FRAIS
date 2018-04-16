@@ -5,7 +5,8 @@ namespace PPE3\GsbFraisBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use PPE3\GsbFraisBundle\Entity\LigneFraisForfait;
 
-//use PPE3\GsbFraisBundle\Entity\LigneFraisForfait;
+use Doctrine;
+
 
 class LigneFraisForfaitRepository extends EntityRepository
 {
@@ -22,8 +23,22 @@ class LigneFraisForfaitRepository extends EntityRepository
 
             $resultat = $em->flush();
 
+
         }
 
         return $resultat;
     }
+
+    public function rechercherL(){
+
+        $queryBuilder = $this->_em->createQueryBuilder('l')
+            ->select('l')
+            ->from($this->_entityName, 'l')
+            ->getQuery()
+            ->getResult();
+
+        return $queryBuilder;
+
+    }
+
 }

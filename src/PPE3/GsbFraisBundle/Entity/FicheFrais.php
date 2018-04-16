@@ -16,24 +16,21 @@ class FicheFrais
 {
 
     /**
-     *
      * @ORM\Id
-     * @ORM\Column(name="mois", type="string", length=6)
+     * @ORM\Column(name="mois", type="integer")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
 
     private $mois;
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="PPE3\GsbFraisBundle\Entity\Visiteur")
-     *
+     * @ORM\ManyToOne(targetEntity="PPE3\GsbFraisBundle\Entity\Visiteur", cascade={"persist"})
      */
     private $visiteur;
 
     /**
-     * 
      * @ORM\ManyToOne(targetEntity="PPE3\GsbFraisBundle\Entity\Etat")
-     *
      */
     private $etat;
 
@@ -61,11 +58,22 @@ class FicheFrais
      */
     private $dateModif;
 
+    public function __construct($visiteur, $mois, $etat, $nbJustificatif, $montant, $dateModif)
+    {
+        $this->mois = $mois;
+        $this->visiteur = $visiteur;
+        $this->etat = $etat;
+        $this->nbJustificatif = $nbJustificatif;
+        $this->montant = $montant;
+        $this->dateModif = $dateModif;
+
+    }
+    
 
     /**
      * Set mois
      *
-     * @param string $mois
+     * @param integer $mois
      *
      * @return FicheFrais
      */
@@ -79,7 +87,7 @@ class FicheFrais
     /**
      * Get mois
      *
-     * @return string
+     * @return integer
      */
     public function getMois()
     {
@@ -204,5 +212,29 @@ class FicheFrais
     public function getEtat()
     {
         return $this->etat;
+    }
+
+    /**
+     * Add visiteur
+     *
+     * @param \PPE3\GsbFraisBundle\Entity\LigneFraisForfait $visiteur
+     *
+     * @return FicheFrais
+     */
+    public function addVisiteur(\PPE3\GsbFraisBundle\Entity\LigneFraisForfait $visiteur)
+    {
+        $this->visiteur[] = $visiteur;
+
+        return $this;
+    }
+
+    /**
+     * Remove visiteur
+     *
+     * @param \PPE3\GsbFraisBundle\Entity\LigneFraisForfait $visiteur
+     */
+    public function removeVisiteur(\PPE3\GsbFraisBundle\Entity\LigneFraisForfait $visiteur)
+    {
+        $this->visiteur->removeElement($visiteur);
     }
 }

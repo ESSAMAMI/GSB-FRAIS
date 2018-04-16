@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * LigneFraisHotsForfait
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="PPE3\GsbFraisBundle\Repository\LigneFraisHorsForfaitRepository")
  */
 class LigneFraisHorsForfait
 {
@@ -46,9 +46,9 @@ class LigneFraisHorsForfait
     private $libelle;
 
     /**
-     * @var date
+     * @var string
      *
-     * @ORM\Column(name="date", type="date", nullable=true)
+     * @ORM\Column(name="date", type="string", length=20, nullable=true)
      */
     private $date;
 
@@ -59,7 +59,14 @@ class LigneFraisHorsForfait
      */
     private $montant;
 
-
+    public function __construct($visiteur, $mois, $libelle, $date, $montant)
+    {
+        $this->visiteur = $visiteur;
+        $this->mois = $mois;
+        $this->libelle = $libelle;
+        $this->date = $date;
+        $this->montant = $montant;
+    }
 
     /**
      * Get id

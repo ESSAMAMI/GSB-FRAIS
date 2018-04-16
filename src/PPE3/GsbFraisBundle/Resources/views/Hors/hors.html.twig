@@ -1,0 +1,104 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+    {{ parent() }} Frias hors forfait
+{% endblock %}
+{% block body %}
+    <div class="page-wrapper">
+        <!-- Bread crumb -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-primary">FICHE FRAIS HORS FORFAIT </h3>
+            <div class="col-md-7 align-self-center">
+
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-outline-primary">
+                        <div class="card-header">
+                            <h4 class="m-b-0 text-white">Frais hors forfait</h4>
+                        </div>
+                        <div class="card-body">
+                            {{ form_start(form) }}
+                            <div class="form-body">
+
+                                <hr>
+                                <div class="row p-t-20">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            {% set annee = "now"|date("Y") %}
+                                            {{ form_row(form.annee,{'value' : annee }) }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            {% set mois = "now"|date("m") %}
+                                            {{ form_row(form.mois, {'value' : mois}) }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+
+                                            {{ form_row(form.libelle) }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+
+                                            {{ form_row(form.date) }}
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+
+
+                                            {{ form_row(form.montant) }}
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group has-danger">
+
+                                            {{ form_row(form.add) }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group has-danger">
+
+                                            {{ form_row(form.ccl) }}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            {{ form_end(form) }}
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- footer -->
+            <footer class="footer"> © 2018 All rights reserved.  <a href="https://colorlib.com"></a></footer>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+    </div>
+{% endblock %}

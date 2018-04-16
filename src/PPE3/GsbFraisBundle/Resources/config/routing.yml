@@ -25,4 +25,8 @@ ppe3_gsb_edit:
     path:     /Mdp
     defaults: { _controller: PPE3GsbFraisBundle:Modifier:index }
 
+ppe3_gsb_hors:
+    path:     /Hors
+    defaults: { _controller: PPE3GsbFraisBundle:Hors:index }
+
 

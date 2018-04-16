@@ -18,43 +18,68 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-title">
-                        <h4>INFORMATIONS </h4>
+                        <h4>INFORMATIONS FICHE FRAIS</h4>
 
                     </div>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Status</th>
-                                    <th>Date</th>
-                                    <th>Price</th>
+                                    <th>Etat</th>
+                                    <th>Nombre justificatif</th>
+                                    <th>Montant</th>
+                                    <th>Date modification</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
+                                {% set i = 1 %}
+                                {% for fiche in lesFiches %}
+
+                                    <tr>
+                                        {% set explode =  fiche.dateModif|split('-') %}
+                                        <td><span class="badge badge-primary">{{ i }}</span></td>
+                                        <td>{{ fiche.etat.libelle }}</td>
+                                        <td>{{ fiche.nbJustificatif }}</td>
+                                        <td>{{ fiche.montant }}</td>
+                                        <td class="color-primary">{{ explode[2]~'-'~explode[1]~'-'~explode[0] }}</td>
+                                    </tr>
+                                    {% set i = i + 1 %}
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-title">
+                        <h4>INFORMATIONS FRAIS FORFAIT</h4>
+
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Kolor Tea Shirt For Man</td>
-                                    <td><span class="badge badge-primary">Sale</span></td>
-                                    <td>January 22</td>
-                                    <td class="color-primary">$21.56</td>
+                                    <th>#</th>
+                                    <th>Etat</th>
+                                    <th>Nombre justificatif</th>
+                                    <th>Montant</th>
+                                    <th>Date modification</th>
+
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Kolor Tea Shirt For Women</td>
-                                    <td><span class="badge badge-success">Tax</span></td>
-                                    <td>January 30</td>
-                                    <td class="color-success">$55.32</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Blue Backpack For Baby</td>
-                                    <td><span class="badge badge-danger">Extended</span></td>
-                                    <td>January 25</td>
-                                    <td class="color-danger">$14.85</td>
-                                </tr>
+                                </thead>
+                                <tbody>
+
+
                                 </tbody>
                             </table>
                         </div>
